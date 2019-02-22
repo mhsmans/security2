@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "Example tweet",
+    "body": "This is the tweet body. Do you like this tweet? I don't. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 2,
+    "title": "Another example tweet",
+    "body": "Another example tweet for your tweet feed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 3,
+    "title": "The tweets keep coming",
+    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  }
+]

@@ -1,0 +1,76 @@
+html
+    head
+        title= Tweeter
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+        script.
+            var tweets = !{tweets};
+
+        script.
+            $(document).ready(function(){
+                if(localStorage.getItem("super-token")) {
+                    $("#auth-button").val("Logout");
+                    $("#auth-button").click(function() {
+                        localStorage.removeItem("super-token");
+                        $("#auth").attr("action", null);
+                    });
+                }
+
+
+                $("#post-form").submit(function(e) {
+                var form = $(this);
+                var url = form.attr('action');
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    headers: {
+                        "super-tweeter-token": localStorage.getItem("super-token")
+                    },
+                    data: {
+                        title: $("#title").val(),
+                        body: $("#body").val()
+                    },
+                    success: function() {
+                        location.reload();
+                    }
+                });
+                e.preventDefault();
+            });
+            });
+    body
+
+    <div>
+        <span style="justify-content: space-between; display: flex;">
+            <h2 style="display: inline-flex">Tweeter feed</h2>
+            <form id="auth" style="display: inline-flex; margin: auto 0;" action="/login">
+                <input id="auth-button" type="submit" value="Login">
+            </form>
+        </span>
+        hr
+    </div>
+
+    <div id="tweets" style="height: 50vh; overflow: scroll; background-color: #f4f4f4;">
+    each tweet in tweets 
+        <div style="margin: 0 auto; width: 50vw; padding-bottom: 50px;">
+        h3= tweet.title
+        p= tweet.body
+        </div>
+    </div>
+    hr 
+    <div style="margin: 100px;">
+      <form id="post-form" action="/tweet" method="POST" name="post-form" enctype="application/x-www-form-urlencoded">
+        <label for="title">Title:</label>
+        <br>
+        <input id="title" name="title" type="text" style="width: 100%;"/>
+        <br>
+        <label for="body">Message:</label>
+        <br>
+        <textarea id="body" name="body" rows="10" resize="none" style="width: 100%;"></textarea>
+        <br>
+        <input id="submit" type="submit" value="Tweet"/>
+      </form>
+    </div>
+
+
+
+

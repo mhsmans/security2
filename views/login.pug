@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Tweeter</title>
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script.
+        $(document).ready(function(){
+            $("#login-form").submit(function(e) {
+                var form = $(this);
+                var url = form.attr('action');
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {
+                        username: $("#username").val(),
+                        password: $("#password").val()
+                    },
+                    success: function(data) {
+                        localStorage.setItem("super-token", data.token);
+                        window.location = "/";
+                    },
+                    error: function() {
+                        alert("Invalid credentials..");
+                    }
+                });
+                e.preventDefault();
+            });
+        });
+
+  </head>
+  <body>
+
+    <div style="margin: 100px;">
+      <form id="login-form" action="/login" method="POST" name="login form" enctype="application/x-www-form-urlencoded">
+        <label for="username">Username:</label>
+        <input id="username" name="username" type="text" />
+        <br>
+        <label for="password">Password:</label>
+        <input id="password" name="password" type="password" />
+        <br>
+        <input id="submit" type="submit" value="Login"/>
+      </form>
+    </div>
+
+  </body>
+</html>
