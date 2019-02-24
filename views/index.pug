@@ -53,6 +53,7 @@ html
     each tweet in tweets 
         <div style="margin: 0 auto; width: 50vw; padding-bottom: 50px;">
         h3= tweet.title
+        //- use p!= for no HTML-escaping
         p= tweet.body
         </div>
     </div>

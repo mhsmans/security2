@@ -26,7 +26,7 @@ const auth = function(req, res) {
     const user = validateUser(req.body.username, req.body.password);
     if (user) {
       const expires = moment()
-        .add(100, "seconds")
+        .add(10000, "seconds")
         .valueOf();
 
       const payload = {

